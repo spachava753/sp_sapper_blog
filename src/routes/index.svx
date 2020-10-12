@@ -27,12 +27,13 @@
         <div class="article">
             <h2><a href='/blog/{post.link}'>{post.title}</a></h2>
             <p>
-                {post.date.toDateString()}
+                {#if post.date}
+                    {post.date.toDateString()}
+                {/if}
                 <br/>
-                Appsync Subscriptions are important for anyone that wants to develop a realtime app. However, I had a
-                lot of
-                trouble
-                trying to understand…
+                {#if post.abstract}
+                    {post.abstract}
+                {/if}
             </p>
         </div>
     {/each}

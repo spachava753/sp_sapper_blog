@@ -3,6 +3,7 @@ title: "QuickFixJ and Spring Boot tutorial"
 date: 2018-11-17T22:27:22-05:00
 tags: ["FIX", "Java", "Spring boot", "Finance", "Tutorial"]
 link: 'quickfixj-spring-boot'
+abstract: FIX stands for Financial Information exchange, and the protocol was put forth in 1992 for real-time exchange of information that is related to the securities transactions and markets. There are multiple version of this protocol, and in each there are specific fields that are required. The protocol exchanges a myriad of types of messages, from orders to financial news...
 ---
 
 # What is QuickFixJ

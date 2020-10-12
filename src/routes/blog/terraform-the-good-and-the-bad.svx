@@ -3,6 +3,7 @@ title: "Terraform: The Good and The Bad"
 date: 2018-12-06T23:58:20.406Z
 tags: ["Devops", "Terraform", "Infrastructure Provisioning", "Cloud-agnostic"]
 link: 'terraform-the-good-and-the-bad'
+abstract: So … what is Terraform? In order to know what Terraform is, we need to know what infrastructure provisioning is. **Infrastructure provisioning** is the process of acquiring infrastructure to run your software in. Before the concept of Infrastructure-as-Code came in, companies had acquire, configure, and maintain their own hardware, and have a...
 ---
 
 # Intro

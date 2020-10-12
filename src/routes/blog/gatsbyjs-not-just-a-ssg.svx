@@ -2,6 +2,7 @@
 title: 'GatsbyJS: Not just a SSG'
 date: 2019-08-29T23:10:38.492Z
 link: 'gatsbyjs-not-just-a-ssg'
+abstract: By now, I'm sure everybody has heard of GatsbyJS. It's a React-based web framework with a plugin system that allows you to glue various data sources to page views. Of course, it functions as a SSG (Static Site Generator), but it's much more powerful than that...
 ---
 By now, I'm sure everybody has heard of GatsbyJS. It's a React-based web framework with a plugin system that allows you to glue various data sources to page views. Of course, it functions as a SSG (**S**tatic **S**ite **G**enerator), but it's much more powerful than that.
 

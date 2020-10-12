@@ -2,6 +2,7 @@
 date: 2019-08-10T23:58:20.406Z
 title: Setting up CI/CD with AWS Lambda
 link: 'setting-up-ci-cd-with-aws-lambda'
+abstract: I'm sure everybody has heard of AWS Lambda. It's AWS's version of a serverless service. Serverless is gaining traction in the industry from heavyweights to startups. It's ease of creating and deploying functions make it popular to be used whenever possible. I won't go too much into why you should use serverless as there plenty of articles and blog posts dedicated to why it's great...
 ---
 # Intro
 

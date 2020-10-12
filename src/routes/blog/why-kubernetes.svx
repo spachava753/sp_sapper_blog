@@ -2,6 +2,7 @@
 title: Why Kubernetes?
 date: 2020-01-16T19:24:20.170Z
 link: 'why-kubernetes'
+abstract: "During the recent years of application development, companies have been heavily invested in containerization and automation. There are many reasons for this movement, but to name a few: fast development speed, highly available applications, and isolation with minimal overhead. Containers were especially popularized as they isolated processes..."
 ---
 In order to understand why a container orchestration platform is needed, one must first understand why containers are needed. 
 

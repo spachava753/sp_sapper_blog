@@ -2,6 +2,7 @@
 title: VS Code - The editor that could?
 date: 2020-01-16T19:24:20.170Z
 link: 'vscode-experience'
+abstract: A lot of people know about Atom, and its extensions that are able to be installed via its package manger apm. The fact that it is so customizable, yet does not take up the same amount of resources as an IDE makes it the perfect editor to use and personalize. As for me, although I dabbled in Atom, I didn’t really customize it too much, nor did I install...
 ---
 # VS Code - The editor that could
 November 07, 2018

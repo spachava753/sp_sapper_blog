@@ -2,6 +2,7 @@
 title: 'Kubernetes: A look into the guts'
 date: 2019-09-06T23:10:38.492Z
 link: 'kubernetes-a-look-into-the-guts'
+abstract: Kubernetes is designed to flexible and extensible. You can see the an example of this by looking at the Load Balancing resource. Each Kubernetes platform provider provisions this resource a different way, but the actual behavior does not change. The load balancer could be provisioned by AWS, GCP, or just plain Minikube. Regardless, your application will work on all of these platforms...
 ---
 **Kubernetes.** A word that is well-known and hyped throughout the industry. I won't go into all things great about Kubernetes, but here are just a few.
 

@@ -2,6 +2,7 @@
 title: "Spring Boot Architecture"
 date: 2018-12-19
 link: 'spring-boot-arch'
+abstract: Although Java is considered notorious for being a verbose language, very few languages come close to the sheer size of the community and features that Java has to offer. One of the best things that the Java community and ecosystem has to offer is frameworks. If you are a Java developer, you probably heard of Spring Boot. Spring Boot is a wonderful framework that takes the pain out of writing boilerplate code for...
 ---
 
 ## A Bootiful Introduction
