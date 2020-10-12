@@ -1,0 +1,180 @@
+<script context="module">
+  export async function preload(page, session) {
+    const res = await this.fetch(`blog/posts.json`);
+    const posts = await res.json();
+    return {posts};
+  }
+</script>
+
+<script>
+
+  export let posts = [];
+  $: {
+    if (posts != undefined) {
+      posts.map(el => el.date = new Date(el.date));
+      posts.sort((a, b) => b.date - a.date);
+    }
+  }
+
+</script>
+
+<svelte:head>
+    <title>The Sp Blog</title>
+</svelte:head>
+
+<div>
+    {#each posts as post}
+        <div class="article">
+            <h2><a href='/blog/{post.link}'>{post.title}</a></h2>
+            <p>
+                {post.date.toDateString()}
+                <br/>
+                Appsync Subscriptions are important for anyone that wants to develop a realtime app. However, I had a
+                lot of
+                trouble
+                trying to understand…
+            </p>
+        </div>
+    {/each}
+</div>
+
+<!--
+<div class="article">
+    <h2>The complete guide to AppSync Subscriptions</h2>
+    <p>
+        June 15, 2020
+        Appsync Subscriptions are important for anyone that wants to develop a realtime app. However, I had a lot of
+        trouble
+        trying to understand…
+    </p>
+</div>
+
+<div class="article">
+    <h2>A Shiny New IaC Tool: AWS CDK</h2>
+    <p>
+        April 17, 2020
+        AWS has been continuously improving its cloud services day by day, and has never failed to amaze me. My website
+        is
+        currently hosted on AWS…
+    </p>
+</div>
+
+<div class="article">
+    <h2>Why Kubernetes?</h2>
+    <p>
+        January 16, 2020
+        In order to understand why a container orchestration platform is needed, one must first understand why
+        containers
+        are needed. Why…
+    </p>
+</div>
+
+<div class="article">
+    <h2>Kubernetes: A look into the guts</h2>
+    <p>
+        September 06, 2019
+        Kubernetes. A word that is well-known and hyped throughout the industry. I won’t go into all things great about
+        Kubernetes, but here are…
+    </p>
+</div>
+
+<div class="article">
+    <h2>GatsbyJS: Not just a SSG</h2>
+    <p>
+        August 29, 2019
+        By now, I’m sure everybody has heard of GatsbyJS. It’s a React-based web framework with a plugin system that
+        allows
+        you to glue various data…
+    </p>
+</div>
+
+<div class="article">
+    <h2>SpaCy and NLTK: the Successor and the Predecessor</h2>
+    <p>
+        August 23, 2019
+        SpaCy has taken the NLP world by storm. It’s reasonable to say that SpaCy is NLTK’s successor. Or is it? In this
+        article I will talk about…
+    </p>
+</div>
+
+<div class="article">
+    <h2>Setting up CI/CD with AWS Lambda</h2>
+    <p>
+        August 10, 2019
+        Intro I’m sure everybody has heard of AWS Lambda. It’s AWS’s version of a serverless service. Serverless is
+        gaining
+        traction in the industry…
+    </p>
+</div>
+
+<div class="article">
+    <h2>Spring Boot Architecture</h2>
+    <p>
+        December 19, 2018
+        A Bootiful Introduction (pun intended) Although Java is considered notorious for being a verbose language, very
+        few
+        languages come close to…
+    </p>
+</div>
+
+<div class="article">
+    <h2>Terraform: The Good and The Bad</h2>
+    <p>
+        December 06, 2018
+        Intro So … what is Terraform? In order to know what Terraform is, we need to know what infrastructure
+        provisioning
+        is. Infrastructure…
+    </p>
+</div>
+
+<div class="article">
+    <h2>QuickFixJ and Spring Boot tutorial</h2>
+    <p>
+        November 18, 2018
+        What is QuickFixJ What is a FIX FIX stands for Financial Information exchange, and the protocol was put forth in
+        1992 for real-time exchange…
+    </p>
+</div>
+
+<div class="article">
+    <h2><a href="/blog/vscode-experience/">VS Code - The editor that could</a></h2>
+    <p>
+        November 07, 2018
+        VS Code vs. Atom At some point in time, you may have heard of VS Code, or Visual Studio Code, as an open source
+        competitor for Atom, backed…
+    </p>
+</div>
+
+<div class="article">
+    <h2><a href="/blog/{metadata.link}">{metadata.title}</a></h2>
+    <p>
+        October 17, 2018
+        Hello World! This is my first time writing a blog, and also my first time hosting my own website. This blog is
+        my
+        first “real world” project…
+    </p>
+</div>
+-->
+<style>
+    p {
+        text-align: center;
+        margin: 1em auto;
+        background-color: inherit;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .article {
+        margin: auto;
+    }
+
+    .article p, .article h2 {
+        text-align: left;
+    }
+
+    .article p {
+        margin-bottom: 2rem;
+    }
+</style>

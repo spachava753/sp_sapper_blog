@@ -1,0 +1,52 @@
+body {
+	margin: 0;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5em 0;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+a {
+	color: inherit;
+}
+
+code {
+	font-family: menlo, inconsolata, monospace;
+	font-size: calc(1em - 2px);
+	color: #555;
+	background-color: #f0f0f0;
+	padding: 0.2em 0.4em;
+	border-radius: 2px;
+}
+
+@media (max-width: 400px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+a {
+	text-align: center;
+	--line-height: 2px;
+	text-decoration: none;
+	background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#0dadc9, #0dadc9), linear-gradient(#00e5f3, #00e5f3);
+	background-size: 20px var(--line-height), 100% var(--line-height), 0 var(--line-height);
+	background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
+	background-repeat: no-repeat;
+	transition: background-size 300ms ease-in-out, background-position 300ms ease-in-out;
+}
+
+a:hover {
+	background-size: 20px var(--line-height), 0 var(--line-height), 100% var(--line-height);
+	background-position: calc(100% + 20px) 100%, 100% 100%, 0 100%;
+}
