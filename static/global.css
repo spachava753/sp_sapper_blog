@@ -50,3 +50,7 @@ a:hover {
 	background-size: 20px var(--line-height), 0 var(--line-height), 100% var(--line-height);
 	background-position: calc(100% + 20px) 100%, 100% 100%, 0 100%;
 }
+
+img {
+	width: 100%;
+}

@@ -11,6 +11,15 @@
 		margin: auto;
 	}
 
+	img {
+		width: 100%;
+	}
+
+	code {
+		word-wrap: break-word;
+		width: 100%;
+	}
+
 	@media (max-width: 600px) {
 		main {
 			width: 70%;
