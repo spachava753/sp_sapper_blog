@@ -20,5 +20,20 @@
         --line-height: 5px;
         font-size: 5rem;
         color: #00b1ba;
+        font-family: Times, sans-serif;
+        font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+        nav {
+            padding: 0.2rem;
+            width: 100%;
+        }
+        a {
+            font-size: 2.2rem;
+        }
+        nav div p {
+            font-size: 1.4rem;
+        }
     }
 </style>

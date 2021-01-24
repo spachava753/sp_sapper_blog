@@ -1,18 +1,26 @@
 <script>
 	import Head from '../components/Head.svelte';
-
-	export let segment;
 </script>
+
+<Head/>
+
+<main>
+	<slot></slot>
+</main>
 
 <style>
 	main {
 		padding: 2rem;
-		width: 50%;
 		margin: auto;
+		font-size: 1.2rem;
 	}
 
 	img {
 		width: 100%;
+	}
+
+	main h1 {
+		font-family: Times;
 	}
 
 	code {
@@ -20,21 +28,15 @@
 		width: 100%;
 	}
 
-	@media (max-width: 600px) {
+	@media (min-width: 700px) {
 		main {
-			width: 70%;
+			width: 85%;
 		}
 	}
 
-	@media (max-width: 400px) {
+	@media (min-width: 1000px) {
 		main {
-			width: 90%;
+			width: 50%;
 		}
 	}
 </style>
-
-<Head/>
-
-<main>
-	<slot></slot>
-</main>
