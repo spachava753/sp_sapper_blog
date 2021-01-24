@@ -11,8 +11,8 @@
   export let posts = [];
   $: {
     if (posts != undefined) {
-      posts.map(el => el.date = new Date(el.date));
-      posts.sort((a, b) => b.date - a.date);
+      posts.map(el => el.attributes.date = new Date(el.attributes.date));
+      posts.sort((a, b) => b.attributes.date - a.attributes.date);
     }
   }
 
@@ -25,14 +25,14 @@
 <div>
     {#each posts as post}
         <div class="article">
-            <h2><a href='/blog/{post.link}'>{post.title}</a></h2>
+            <h2><a href='/blog/{post.attributes.link}'>{post.attributes.title}</a></h2>
             <p>
-                {#if post.date}
-                    {post.date.toDateString()}
+                {#if post.attributes.date}
+                    {post.attributes.date.toDateString()}
                 {/if}
                 <br/>
-                {#if post.abstract}
-                    {post.abstract}
+                {#if post.attributes.abstract}
+                    {post.attributes.abstract}
                 {/if}
             </p>
         </div>

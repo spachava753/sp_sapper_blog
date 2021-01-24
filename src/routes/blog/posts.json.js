@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import grayMatter from "gray-matter";
+import fm from "front-matter";
 
 
 export function get(req, res) {
@@ -11,7 +11,8 @@ export function get(req, res) {
     if(fileName.slice(-4) != ".svx")
       return
     const post = fs.readFileSync(path.resolve("src", "routes", "blog", fileName), "utf-8");
-    return grayMatter(post).data;
+    //console.log(`post: ${JSON.stringify(fm(post))}`);
+    return fm(post);
   }).filter(el => el != undefined);
   res.end(JSON.stringify(data));
 }
