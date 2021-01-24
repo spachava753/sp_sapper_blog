@@ -15,14 +15,6 @@
 		font-size: 1.2rem;
 	}
 
-	img {
-		width: 100%;
-	}
-
-	main h1 {
-		font-family: Times;
-	}
-
 	@media (min-width: 700px) {
 		main {
 			width: 85%;

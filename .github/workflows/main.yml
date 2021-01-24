@@ -12,20 +12,31 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: Build and deploy site
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-      - name: Build site
+      # Sets up node version 12.x
+      - name: Set up node
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - run: npm install
-      - run: npm run export
+      
+      # Installed node modules
+      - name: Install node modules
+        run: npm install
+
+      # Runs sapper export, to convert site into static html
+      - name: Export site
+        run: npm run export
+      
+      # Configure AWS credentials to deploy site
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -33,11 +44,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # Delete old objects in the bucket
       - name: Delete old objects in S3
         run: aws s3 rm --recursive s3://thespblog.net
 
+      # Upload bundle to s3
       - name: Upload to S3
         run: cd __sapper__/export && aws s3 sync . s3://thespblog.net
 
+      # Invalidate the cache of Cloudfront to deploy site immediately
       - name: Invalidate cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUD_FRONT_DIST_ID }} --paths "/*"
