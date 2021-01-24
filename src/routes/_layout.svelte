@@ -39,4 +39,12 @@
 			width: 50%;
 		}
 	}
+
+	:global(body) {
+		transition: background-color 0.3s
+	}
+	:global(body.dark-mode) {
+		background-color: #080c0f;
+		color: #eaebec;
+	}
 </style>
