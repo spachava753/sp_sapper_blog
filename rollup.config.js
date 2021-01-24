@@ -7,10 +7,12 @@ import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import { mdsvex } from "mdsvex";
+import path from "path";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const pathMdsvexBlogLayout = path.join(__dirname, "./src/components/BlogLayout.svelte");
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -32,7 +34,10 @@ export default {
 				dev,
 				hydratable: true,
 				emitCss: true,
-				preprocess: mdsvex()
+				preprocess: mdsvex({
+					smartypants: true,
+					layout: pathMdsvexBlogLayout
+				})
 			}),
 			resolve({
 				browser: true,
