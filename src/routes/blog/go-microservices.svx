@@ -5,4 +5,5 @@ link: go-microservices
 abstract: Writing microservices is hard. There are lots of application concerns that we have to keep in mind like rate limiting, circuit breaking, retries, logging, metrics collection, feature flags, etc. Frameworks like Spring Boot, Ruby on Rails, and Django have generally helped with this problem for developers, but what does Go have?
 ---
 
-Go Microservices
+Writing microservices is hard. There are lots of application concerns that we have to keep in mind like rate limiting, circuit breaking, retries, logging, metrics collection, feature flags, etc. Frameworks like Spring Boot, Ruby on Rails, and Django have generally helped with this problem for developers, but what does Go have?
+
