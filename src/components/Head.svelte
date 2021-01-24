@@ -7,7 +7,7 @@ import DarkModeButton from "./DarkModeButton.svelte";
     <div style="text-align: center;">
         <a href="/">The Sp Blog</a>
         <p>Thoughts, musings and education posts by Shashank Pachava</p>
-        <DarkModeButton>Toggle</DarkModeButton>
+        <DarkModeButton>Dark mode</DarkModeButton>
     </div>
 </nav>
 
