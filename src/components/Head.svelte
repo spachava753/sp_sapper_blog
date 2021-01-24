@@ -14,7 +14,6 @@ import DarkModeButton from "./DarkModeButton.svelte";
 <style>
     nav {
         padding: 1rem;
-        width: 100%;
     }
 
     nav div p {
@@ -32,8 +31,7 @@ import DarkModeButton from "./DarkModeButton.svelte";
 
     @media (max-width: 600px) {
         nav {
-            padding: 0.2rem;
-            width: 100%;
+            padding: 0.6rem;
         }
         a {
             font-size: 2.2rem;
