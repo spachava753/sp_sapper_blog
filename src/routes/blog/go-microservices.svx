@@ -5,5 +5,25 @@ link: go-microservices
 abstract: Writing microservices is hard. There are lots of application concerns that we have to keep in mind like rate limiting, circuit breaking, retries, logging, metrics collection, feature flags, etc. Frameworks like Spring Boot, Ruby on Rails, and Django have generally helped with this problem for developers, but what does Go have?
 ---
 
+<script>
+    import StarCount from '../../components/StarCount.svelte';
+    import Checkbox from '../../components/Checkbox.svelte';
+    import Blockquote from '../../components/Blockquote.svelte';
+</script>
+
+<Checkbox checked>Talk about Micro</Checkbox>
+<Checkbox>Talk about Goa</Checkbox>
+<Checkbox>Talk about Kite</Checkbox>
+<Checkbox>Talk about Go-kit</Checkbox>
+
+
 Writing microservices is hard. There are lots of application concerns that we have to keep in mind like rate limiting, circuit breaking, retries, logging, metrics collection, feature flags, etc. Frameworks like Spring Boot, Ruby on Rails, and Django have generally helped with this problem for developers, but what does Go have?
 
+# Possible solutions
+
+In 2020, there are a couple of solutions. First, we have [micro](https://github.com/micro/micro). It takes a much more "heavy" approach (sort of like Spring Boot), with opinionated architecture and code generation. It is the most invasive of the possible solutions, but also offers the most amount of features. It has a CLI to help you scaffold your project, plenty of documentation, and a set way to communicate to other microservices in your ecosystem. As the website puts it:
+<Blockquote>Micro is Android for Cloud</Blockquote>
+
+Early on, micro was just a service framework but since evolved into a ["platform for cloud native development which includes a server, command line and service framework."](https://micro.mu/faq#whats-the-difference-between-micro-and-go-micro) This project has <StarCount alt="Star count Badge for Micro repo" user="micro" repo="micro"/> on Github. 
+
+The next project is [goa](https://goa.design/). This project bases itself on a design-first approach. You first design your services and API using their DSL.
