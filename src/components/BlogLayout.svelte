@@ -1,8 +1,3 @@
-<script context="module">
-    import blockquote from "./blockquote.svelte";
-    export { blockquote };
-</script>
-
 <script>
     export let title;
     export let date;
