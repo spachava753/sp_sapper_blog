@@ -14,6 +14,8 @@
         display: inline;
         width: auto;
         vertical-align: middle;
+        height: 1.8ch;
+        width: auto;
     }
     a {
         text-decoration: none;
