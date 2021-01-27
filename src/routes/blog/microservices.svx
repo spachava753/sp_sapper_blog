@@ -13,6 +13,7 @@ abstract: Writing microservices is hard. There are lots of application concerns 
 
 <Checkbox checked>Talk about what microservices are</Checkbox>
 <Checkbox checked>Talk about writing microservices in 2020</Checkbox>
+<Checkbox>Ask for opinions</Checkbox>
 
 Writing microservices is hard. Doesn't matter what language, going from monolith to microservices means introducing more moving parts, more possibilities for failure, yet in order to scale effectively, they are a necessary evil. According to this post: the definition microservices is this:
 <Blockquote>Microservices are a style of software architecture that involves delivering systems as a set of very small, granular, independent collaborating services</Blockquote>
