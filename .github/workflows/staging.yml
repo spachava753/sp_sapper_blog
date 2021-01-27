@@ -49,7 +49,7 @@ jobs:
 
       # Delete old objects in the bucket
       - name: Delete old objects in S3
-        run: aws s3 rm --recursive s3://thespblog.net
+        run: aws s3 rm --recursive s3://staging.thespblog.net
 
       # Upload bundle to s3
       - name: Upload to S3
