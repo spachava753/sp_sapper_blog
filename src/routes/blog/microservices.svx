@@ -1,7 +1,7 @@
 ---
-title: Go Microservices
+title: Microservices 😱
 date: 2021-01-24T18:24:27.136Z
-link: go-microservices
+link: microservices
 abstract: Writing microservices is hard. There are lots of application concerns that we have to keep in mind like rate limiting, circuit breaking, retries, logging, metrics collection, feature flags, etc. Frameworks like Spring Boot, Ruby on Rails, and Django have generally helped with this problem for developers, but what does Go have?
 ---
 
@@ -11,11 +11,8 @@ abstract: Writing microservices is hard. There are lots of application concerns 
     import Blockquote from '../../components/Blockquote.svelte';
 </script>
 
-<Checkbox>Talk about what microservices are</Checkbox>
-<Checkbox>Talk about writing microservices in 2020</Checkbox>
-<Checkbox>Talk about some solutions</Checkbox>
-<Checkbox>Talk about go-kit</Checkbox>
-
+<Checkbox checked>Talk about what microservices are</Checkbox>
+<Checkbox checked>Talk about writing microservices in 2020</Checkbox>
 
 Writing microservices is hard. Doesn't matter what language, going from monolith to microservices means introducing more moving parts, more possibilities for failure, yet in order to scale effectively, they are a necessary evil. According to this post: the definition microservices is this:
 <Blockquote>Microservices are a style of software architecture that involves delivering systems as a set of very small, granular, independent collaborating services</Blockquote>
@@ -45,9 +42,16 @@ Lets assume that we have taken care of observability, now its time to talk about
 
 We're still missing something...oh yeah! Scalability! One of the most important reasons to go through all this trouble in the first place. If we used a monolithic architecture, scaling that service usually meant acquiring bigger specs like more memory, more cpu cores, and more network bandwidth. However, there is a limit to this, and we get diminishing returns as we keep upgrading. However, if we split our service into microservices, we scale individual microservices to handle load needed. However, we might still hit a limit for one or more microservices, after all, the problem of getting more and more expensive hardware hasn't gone away. What a troubling issue! 
 
-Hm 🤔🤔, what if...nah...maybe...hear me out. Lets run... multiple instances of microservices. I know, I know, it sounds insane, but stay with me. If we were able to run multiple instances, or copies of a single microservice, this would allow to simple acquire more servers instead of dishing out cash for high-spec hardware. As Google calls it, we could run on commodity hardware, that is, buy a couple of used desktops off Ebay, connect them together, and run our microservices on them. Wonderful🤗! But wait, theres more! How do the other services know where to find our running services? After all, there are multiple copies running at different locations. This is a well known problem called service discovery. But how do we solve this problem?
+Hm 🤔🤔, what if...nah...maybe...hear me out. Lets run... multiple instances of microservices. I know, I know, it sounds insane, but stay with me. If we were able to run multiple instances, or copies of a single microservice, this would allow to simple acquire more servers instead of dishing out cash for high-spec hardware. As Google calls it, we could run on commodity hardware, that is, buy a couple of used desktops off Ebay, connect them together, and run our microservices on them. Wonderful 🤗! But wait, theres more! How do the other services know where to find our running services? After all, there are multiple copies running at different locations. This is a well known problem called service discovery. But how do we solve this problem?
 
 Besides these concerns, we also have others like encrypting connections between microservices for security, figuring out how to deploy our microservices after we create a new version, setting up a central location for all of our microservices configuration, load-balancing and much more. This whole microservices thing is really starting to daunting...
 
 As it turns out, people realized that this whole microservices thing can only work if all of these concerns were addressed. One solution to this problem is Netflix's OSS stack. It is Java-based, and solves the problems mentioned above, like service discovery, central configuration, monitoring, etc. It's most often used with Spring Cloud, which is a set of libraries built to work with the (in?)famous Spring framework. We still haven't addressed one issue: deployment! How are ever supposed to actually deploy our microservices to our Ebay servers?! I guess we can use ssh or ansible or something 😦.
 
+We haven't even got to the part about increasing and decreasing instance of microservice based on demand...😱
+
+# Fast forward to 2020 ⏩
+
+Its the age of the cloud! We have AWS from Amazon, GCP from Google, Azure from Microsoft, IBM Cloud from IBM, Alibaba Cloud from Alibaba, etc. The cloud has enabled companies big and small to get high quality servers in seconds, while getting charged for only the amount of time you use a server! Even crazier, Google came out with a project called Kubernetes, which really just took the (microservices) world by storm. Microservices are now packaged into units of deployment called containers, which contain all of the necessary software that your application needs, so you run it anywhere, regardless of the deployed servers software and library versions. Kubernetes takes these units of deployment, and "orchestrates" them. What does this mean? It takes care of scheduling, deploying, and running your microservice on a server, which you don't even need to specify, Kubernetes just figures it out! How crazy is that?! No, here's the crazy part: you remember all of those annoying problems -- I mean concerns that we saw earlier? Kubernetes takes care of all of that! Yes, not only does it schedule and run your microservice, it takes care of service discovery, configuration, scaling on demand, and much more!🤯  ...Sort of. It's true that Kubernetes can take care of all our problems, but we need to install some software that helps Kubernetes help us. An example of this is a service mesh. In essence, service meshes do the things that Kubernetes doesn't do, things like encrypting communications between microservices, circuit breaking, monitoring, observability, etc. Kubernetes, like microservices, was made to do one thing: manage the lifecycle of containers. Hence, the need for software like service meshes.
+
+One small problem: setting up Kubernetes for production can be quite complicated and tedious. This is where the cloud can step in. The cloud can help set up Kubernetes for us, so that it is resilient against network outages and database failures. Our choice of cloud can also add or remove servers under Kubernetes automatically, so we can run only as many servers as needed. Great! Previously, we might have relied on something like the Netflix OSS stack, which often had constraints like first class support for a single language or required to add something to our source code that isn't directly related to the logic contained in our microservice.
