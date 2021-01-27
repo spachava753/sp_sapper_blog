@@ -1,5 +1,5 @@
 ---
-title: My Intro
+title: My Introduction
 abstract: This is my first time writing a blog, and also my first time hosting my own website. This blog is my first “real world” project, so I would appreciate any feedback you have. My email is spachava753@gmail.com. Happy developing!
 date: 2018-10-17T17:44:36-04:00
 link: introduction
