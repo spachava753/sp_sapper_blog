@@ -11,19 +11,36 @@ abstract: Writing microservices is hard. There are lots of application concerns 
     import Blockquote from '../../components/Blockquote.svelte';
 </script>
 
-<Checkbox checked>Talk about Micro</Checkbox>
-<Checkbox>Talk about Goa</Checkbox>
-<Checkbox>Talk about Kite</Checkbox>
-<Checkbox>Talk about Go-kit</Checkbox>
+<Checkbox>Talk about what microservices are</Checkbox>
+<Checkbox>Talk about writing microservices in 2020</Checkbox>
+<Checkbox>Talk about some solutions</Checkbox>
+<Checkbox>Talk about go-kit</Checkbox>
 
 
-Writing microservices is hard. There are lots of application concerns that we have to keep in mind like rate limiting, circuit breaking, retries, logging, metrics collection, feature flags, etc. Frameworks like Spring Boot, Ruby on Rails, and Django have generally helped with this problem for developers, but what does Go have?
+Writing microservices is hard. Doesn't matter what language, going from monolith to microservices means introducing more moving parts, more possibilities for failure, yet in order to scale effectively, they are a necessary evil. According to this post: the definition microservices is this:
+<Blockquote>Microservices are a style of software architecture that involves delivering systems as a set of very small, granular, independent collaborating services</Blockquote>
 
-# Possible solutions
+What the heck does that mean? Well, lets break it down.
+<Blockquote>Microservices are a style of software architecture...</Blockquote>
 
-In 2020, there are a couple of solutions. First, we have [micro](https://github.com/micro/micro). It takes a much more "heavy" approach (sort of like Spring Boot), with opinionated architecture and code generation. It is the most invasive of the possible solutions, but also offers the most amount of features. It has a CLI to help you scaffold your project, plenty of documentation, and a set way to communicate to other microservices in your ecosystem. As the website puts it:
-<Blockquote>Micro is Android for Cloud</Blockquote>
+Okay, so microservices is way to build software, just like monoliths are another way to build software. In that case, microservices don't refer to any one programming language or platform.
 
-Early on, micro was just a service framework but since evolved into a ["platform for cloud native development which includes a server, command line and service framework."](https://micro.mu/faq#whats-the-difference-between-micro-and-go-micro) This project has <StarCount alt="Star count Badge for Micro repo" user="micro" repo="micro"/> on Github. 
+<Blockquote>...that involves delivering systems...</Blockquote>
 
-The next project is [goa](https://goa.design/). This project bases itself on a design-first approach. You first design your services and API using their DSL.
+It looks like creating software isn't enough. We also have to figure out how to deliver or make it available to our users. Who woulda thunk?
+
+<Blockquote>...as a set of very small, granular, independent collaborating services</Blockquote>
+
+This is the most important part. Microservices, true to its name, means building small, purposeful services that are really meant to a single task. What this task is and the scope of this task is up to the creator of microservices but like Unix philosophy, microservices are meant to do one thing each, and do it well. Of course, each microservices can't achieve much in isolation. as such, they should also collaborate.
+
+Okay. To sum it all up, microservices is a style of building and delivering software that does one thing well and collaborates with other microservices. Sounds good. 👍
+
+Thank you for reading! Be sure come back for the next post...I'm just joking 😅. There is still much more left to think about. 
+
+Lets start with the "collaboration" part. How are your microservices supposed to communicate? Based on your system, perhaps a message bus or a pub sub makes more sense. Maybe you fancy GRPC, or you just want good all REST. Heck, it could be a conglomeration of all of these! So we decided on a means of communication between our microservices. Are we done?
+
+Wait! What about observability? When we had monolithic architecture, we knew where all requests go the same place, but now that our code is split into separate units, we can't keep track of where each request ends up and what services it uses! What if some requests are failing? How do we know what service caused to request to fail? Often, a single microservices might talk to not just one, but *multiple* services, so it can get pretty difficult trace where each request goes.
+
+Lets assume that we have taken care of observability, now its time to talk about monitoring. What's the difference between observability and monitoring? Observability allows to obtain insights into how requests flow through our system. Monitoring allows us to obtain metrics about how each of our services are performing, metrics like: RPS, CPU usage, Memory usage, Number of Bad requests, Average duration, and much more. Basically, if it is possible to monitor it, its not bad idea to monitor it 🤷‍♂️.
+
+We're still missing something...oh yeah! Scalability! One of the most important reasons to go through all this trouble in the first place. If we used a monolithic architecture, scaling that service usually meant acquiring bigger specs like more memory, more cpu cores, and more network bandwidth. However, there is a limit to this, and we get diminishing returns as we keep upgrading. However, if we split our service into microservices, we scale individual microservices to handle load needed.
