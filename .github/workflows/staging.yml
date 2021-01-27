@@ -22,6 +22,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
 
       # Sets up node version 12.x
       - name: Set up node
