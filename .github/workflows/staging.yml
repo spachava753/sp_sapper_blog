@@ -13,7 +13,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    name: Build and deploy site
+    name: Build and deploy site for staging
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -22,6 +22,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
 
       # Sets up node version 12.x
       - name: Set up node
@@ -47,11 +49,11 @@ jobs:
 
       # Delete old objects in the bucket
       - name: Delete old objects in S3
-        run: aws s3 rm --recursive s3://thespblog.net
+        run: aws s3 rm --recursive s3://staging.thespblog.net
 
       # Upload bundle to s3
       - name: Upload to S3
-        run: cd __sapper__/export && aws s3 sync . s3://thespblog.net
+        run: cd __sapper__/export && aws s3 sync . s3://staging.thespblog.net
 
       # Invalidate the cache of Cloudfront to deploy site immediately
       - name: Invalidate cache
